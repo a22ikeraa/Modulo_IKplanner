@@ -6,9 +6,69 @@
         <field name="res_model">ikplaner_activity</field>
         <field name="view_mode">tree,form,kanban</field>
     </record>
-    
+
+    <odoo>
+        <data>
+          <record model="ir.ui.view" id="view_ikplaner_activity_kanban">
+            <field name="name">ikplaner.activity.kanban</field>
+            <field name="model">ikplaner_activity</field>
+            <field name="arch" type="xml">
+              <kanban default_group_by="priority">
+                <field name="name"/>
+                <field name="priority"/>
+                <field name="creator"/>
+                <field name="members"/>
+                <field name="activity_start"/>
+                <field name="activity_end"/>
+                <templates>
+                  <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                      <div class="oe_kanban_content">
+                        <div class="oe_kanban_card">
+                          <div class="oe_kanban_card_header">
+                            <div class="oe_kanban_record_title">
+                             Actividad: <field name="name"/>
+                            </div>
+                            <div class="oe_kanban_record_priority">
+                              Prioridad: <field name="priority"/>
+                            </div>
+                          </div>
+                          <div class="oe_kanban_card_body">
+                            <div class="oe_kanban_card_creator">
+                              Creador: <field name="creator"/>
+                            </div>
+                            <div class="oe_kanban_card_members">
+                             Miembros actividad:<field name="members" widget="many2many_tags"/>
+                            </div>
+                          </div>
+                          <div class="oe_kanban_card_footer">
+                            <div class="oe_kanban_record_start">
+                              Fecha de creacion:<field name="activity_start"/>
+                            </div>
+                            <div class="oe_kanban_record_end">
+                              Fecha de finalizacion: <field name="activity_end"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </t>
+                </templates>
+              </kanban>
+            </field>
+          </record>
+        </data>
+      </odoo>
+      
+
     <menuitem id="ikplanner_root"
     name="IK_Planner"
+    action="activity_menu_action"
+    sequence="10"/>
+
+    <menuitem id="activity_kambam_view"
+    name="Vista Kambam"
+    parent="ikplanner_root"
     action="activity_menu_action"
     sequence="10"/>
 

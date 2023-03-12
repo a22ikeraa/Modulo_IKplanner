@@ -18,6 +18,8 @@ class Activity(models.Model):
         'Prioridad' , default ="ninguna")
     members = fields.Many2many('res.partner' , string='Miembros')
 
+
+
     @api.model
     def action_save(self):
     # save changes
