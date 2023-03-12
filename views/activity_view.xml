@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <data>
+        <!-- Menu -->
+        <record id='activity_menu_action' model='ir.actions.act_window'>
+            <field name="name">Actividades</field>
+            <field name="res_model">ikplaner_activity</field>
+            <field name="view_mode">tree,form,kanban,calendar</field>
+        </record>
 
-    <record id='activity_menu_action' model='ir.actions.act_window'>
-        <field name="name">Actividades</field>
-        <field name="res_model">ikplaner_activity</field>
-        <field name="view_mode">tree,form,kanban, calendar</field>
-    </record>
-
-    <odoo>
-        <data>
+            <!-- Vista kanban-->
           <record model="ir.ui.view" id="view_ikplaner_activity_kanban">
             <field name="name">ikplaner.activity.kanban</field>
             <field name="model">ikplaner_activity</field>
@@ -57,19 +57,30 @@
               </kanban>
             </field>
           </record>
-        </data>
-      </odoo>
-      
 
-    <menuitem id="ikplanner_root"
-    name="IK_Planner"
-    action="activity_menu_action"
-    sequence="10"/>
+        <!-- Vista Calendar-->
+        <record id="view_ikplaner_activity_calendar" model="ir.ui.view">
+            <field name="name">ikplaner_activity.calendar</field>
+            <field name="model">ikplaner_activity</field>
+            <field name="arch" type="xml">
+                <calendar string="Actividades" date_start="activity_start" date_stop="activity_end">
+                    <field name="name"/>
+                    <field name="members"/>
+                    <field name="priority"/>
+                    <field name="creator"/>
+                  </calendar>
+            </field>
+          </record>
 
-    <menuitem id="activity_kambam_view"
-    name="Vista Kambam"
-    parent="ikplanner_root"
-    action="activity_menu_action"
-    sequence="10"/>
+        <menuitem id="ikplanner_root"
+        name="IK_Planner"
+        action="activity_menu_action"
+        sequence="10"/>
 
+        <menuitem id="activity_kambam_view"
+        name="Vista Kambam"
+        parent="ikplanner_root"
+        action="activity_menu_action"
+        sequence="10"/>
+    </data>
 </odoo>
