@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="activity_planner.list">
+      <field name="name">activity_planner list</field>
+      <field name="model">activity_planner.activity_planner</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="activity_planner.action_window">
+      <field name="name">activity_planner window</field>
+      <field name="res_model">activity_planner.activity_planner</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="activity_planner.action_server">
+      <field name="name">activity_planner server</field>
+      <field name="model_id" ref="model_activity_planner_activity_planner"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="activity_planner" id="activity_planner.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="activity_planner.menu_1" parent="activity_planner.menu_root"/>
+    <menuitem name="Menu 2" id="activity_planner.menu_2" parent="activity_planner.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="activity_planner.menu_1_list" parent="activity_planner.menu_1"
+              action="activity_planner.action_window"/>
+    <menuitem name="Server to list" id="activity_planner" parent="activity_planner.menu_2"
+              action="activity_planner.action_server"/>
+-->
+  </data>
+</odoo>
