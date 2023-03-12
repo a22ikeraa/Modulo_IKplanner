@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Activity(models.Model):
-    _name = 'IKPlaner.activity'
+    _name = 'ikplaner_activity'
     _description = 'Activity'
 
     name = fields.Char('Nombre Activiadad', requiered = True)
@@ -18,5 +18,22 @@ class Activity(models.Model):
         'Prioridad' , default ="ninguna")
     members = fields.Many2many('res.partner' , string='Miembros')
 
-    
+    @api.model
+    def action_save(self):
+    # save changes
+        self.ensure_one()
+    # perform any necessary validation
+        self.write({
+           'name': self.name,
+           'description': self.description,
+        })
+       # perform any other necessary operations
+        return True  
+
+    @api.model
+    def action_cancel(self):
+    # discard changes
+       self.ensure_one()
+       # perform any necessary operations
+       return True
     

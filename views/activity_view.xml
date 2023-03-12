@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='activity_menu_action' model='ir.actions.act_window'>
+        <field name="name">Actividades</field>
+        <field name="res_model">ikplaner_activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    
+    <menuitem id="ikplanner_root"
+    name="IK_Planner"
+    action="activity_menu_action"
+    sequence="10"/>
+
+</odoo>

@@ -27,6 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/activity_view.xml',
     ],
     'installable': True,
     'auto_install': False,
